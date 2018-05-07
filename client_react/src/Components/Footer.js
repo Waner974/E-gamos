@@ -38,7 +38,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <div>
-        <Row>
+        {/*<Row>
           <Col xs="6" sm="4">
          <Card>
         <CardBody>
@@ -65,7 +65,7 @@ export default class Footer extends React.Component {
           <Button>Button</Button>
         </CardBody>
       </Card></Col>
-        </Row>
+        </Row>*/}
       </div>
     );
   }

@@ -65,6 +65,8 @@ class Home extends React.Component {
     this.setState({ activeIndex: newIndex });
   }
 
+
+
  
   render() {
        
@@ -82,10 +84,12 @@ class Home extends React.Component {
         </CarouselItem>
       );
     });
+
     return (
+
       <Container>
    
-        <Row>
+        {/*<Row>
         <Col xs="12">
            <Carousel
         activeIndex={activeIndex}
@@ -97,7 +101,7 @@ class Home extends React.Component {
         <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
       </Carousel>
         </Col>
-        </Row>
+        </Row>*/}
              <Row>
   
           <Col mb="4">
