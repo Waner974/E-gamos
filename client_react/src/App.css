@@ -44,7 +44,17 @@
   width: 45px;
   border-radius: 22px;
   float: left;
-  margin: 2px;
+  margin-top: 1px;
+}
+
+.google-login{
+  margin-top: 7px;
+  border-radius: 3px;
+  background: #357ae8;
+  border: none;
+  color: white;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 @keyframes App-logo-spin {

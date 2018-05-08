@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import { GoogleLogin } from 'react-google-login-component';
+import '../App.css';
 class Login extends React.Component{
  
   responseGoogle (googleUser) {
@@ -22,7 +23,7 @@ class Login extends React.Component{
                      scope="https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
                      fetchBasicProfile={true}
                      responseHandler={this.responseGoogle.bind(this)}>
-                     Login With Google
+                     Connexion
         </GoogleLogin>
       </div>
     );

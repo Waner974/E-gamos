@@ -57,14 +57,20 @@ export default class Header extends React.Component {
   render() {
 
       const main_content= !this.isLogin() ? <Login updateInfo={this.updateLoginInfo.bind(this)}/> :
-          <div >
-              <div className="userInfo">
-                  <img src={this.state.googleUserInfo.Paa} alt="avatar"/>
-                  <span class="dropdown-item">{this.state.googleUserInfo.ig}</span>
-                  <a onClick={this.logout.bind(this)} >déconnection</a>
-              </div>
-
-          </div>;
+          <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                  <img id="profilImg" src={this.state.googleUserInfo.Paa} alt="avatar"/>
+              </DropdownToggle>
+              <DropdownMenu right>
+                  <DropdownItem>
+                      <span>{this.state.googleUserInfo.ig}</span>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                      <a onClick={this.logout.bind(this)} >Déconnection</a>
+                  </DropdownItem>
+              </DropdownMenu>
+          </UncontrolledDropdown>
     return (
 
       <div>
@@ -84,20 +90,7 @@ export default class Header extends React.Component {
                     <NavLink><Link to="/">Home</Link></NavLink>
               </NavItem>
 
-                <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                            <img id="profilImg" src={this.state.googleUserInfo.Paa} alt="avatar"/>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem>
-                            <span>{this.state.googleUserInfo.ig}</span>
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>
-                            <a onClick={this.logout.bind(this)} >Déconnection</a>
-                        </DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledDropdown>
+                {main_content}
             </Nav>
           </Collapse>
         </Navbar>
