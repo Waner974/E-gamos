@@ -7,6 +7,11 @@ const mongoose = require("mongoose");
 const productRoutes = require("./api/routes/products");
 const voituresRoutes = require("./api/routes/voitures");
 const orderRoutes = require("./api/routes/orders");
+const todoListController = require("./api/controllers/todoListController");
+
+const server = require('http').createServer(app),
+    jwt = require('jsonwebtoken'),
+    io = require('socket.io')(server);
 
 mongoose.connect(
   "mongodb://admin:" +
@@ -53,5 +58,14 @@ app.use((error, req, res, next) => {
     }
   });
 });
+
+io.use((socket, next) => {
+    if (jwt.decode(socket.handshake.query.token)) {
+        return next();
+    }
+    return next(new Error('authentication error'));
+});
+
+todoListController.setSockets(io.sockets);
 
 module.exports = app;
