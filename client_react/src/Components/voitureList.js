@@ -3,9 +3,11 @@ import React from 'react';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux';
 import {addToCart} from '../actions/cartActions'
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid} from 'react-bootstrap';
 import VoitureItem from "./voitureItem";
 import Cart from './cart'
+import { Container, Row, Col } from 'reactstrap';
+
 
 class VoitureList extends React.Component {
     state = {voitures:[]}
@@ -22,21 +24,20 @@ class VoitureList extends React.Component {
     }
     renderProducts() {
         return (
-            this.state.voitures.map((p) => {
-                return (
-            <VoitureItem handleOnAdd={this.dispachAddToCart.bind(this)} key={p._id} product={p}/>
-
-                );
-            })
+            /*this.state.voitures.map((p) => {
+                return (*/
+            <VoitureItem handleOnAdd={this.dispachAddToCart.bind(this)} />
+                /*);
+            })*/
         );
     }
 
     render() {
         return (
-            <Grid>
+            <Container>
                 <Row><Cart /></Row>
                 <Row>{this.renderProducts()}</Row>
-            </Grid>
+            </Container>
         );
     }
 }

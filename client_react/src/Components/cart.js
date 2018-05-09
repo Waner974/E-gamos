@@ -45,7 +45,7 @@ class Cart extends React.Component {
             <Panel>
                 <Row>
                     <Col xs={12} sm={6}>
-                        <h4>TOTAL: <Badge pullRight>Price: INR {this.totalAmount(this.props.cart)}</Badge></h4>
+                        <h4>TOTAL: <Badge pullRight>Prix:  {this.totalAmount(this.props.cart)} EUR</Badge></h4>
                     </Col>
                 </Row>
             </Panel>

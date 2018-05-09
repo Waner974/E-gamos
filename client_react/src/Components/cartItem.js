@@ -9,10 +9,10 @@ class CartItem extends React.Component {
             <Panel className='cartItem'>
                 <Row>
                     <Col xs={12} sm={6}>
-                        <h5>{this.props.cartItem.nom} <Badge pullRight>Price: {this.props.cartItem.price} EUR </Badge></h5>
+                        <h5>{this.props.cartItem.nom} <Badge pullRight>Prix: {this.props.cartItem.price} EUR </Badge></h5>
                     </Col>
                     <Col xs={6} sm={4}>
-                        <p>units :&nbsp;
+                        <p>quantité :&nbsp;
                             <Label bsStyle='success'> {this.props.cartItem.units} </Label>
                             &nbsp;
                             <Button bsSize='small' onClick={() => this.props.onAddUnit()}>+</Button>
