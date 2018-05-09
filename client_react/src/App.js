@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NotificationSystem from 'react-notification-system';
+
 
 import {
   Route,
@@ -10,19 +10,29 @@ import Header from "./Components/Header";
 import Home from "./Views/Home"
 import Cars from "./Views/ListCars"
 import Footer from "./Components/Footer";
+import VoitureItem from"./Components/voitureItem";
+import VoitureList from "./Components/voitureList";
 import { Container, Row, Col } from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import reducers from './redux';
+import logger from 'redux-logger';
+
+const middleware = applyMiddleware(logger);
+const store = createStore(reducers, middleware);
 
 class Main extends Component {
 
 
-    state = {voitures:[]}
+    /*state = {voitures:[]}
     componentDidMount(){
         fetch('/voitures')
             .then(res => res.json())
             .then(voitures => this.setState({voitures}));
-    }
+    }*/
+
 
     render() {
     return (
@@ -30,7 +40,7 @@ class Main extends Component {
         <div>
           <Header/>
             <Container>
-                <Row>
+                {/*<Row>
                 {this.state.voitures.map(voiture =>
 
                     <Col mb="4">
@@ -41,7 +51,7 @@ class Main extends Component {
                                     <CardTitle >{voiture.nom}</CardTitle>
                                     <CardSubtitle>Description</CardSubtitle>
                                     <CardText>{voiture.description}</CardText>
-                                    <Button>Ajouter au Panier</Button>
+                                    <Button onClick={() => this.props.handleOnAdd(this.props.product)}>Ajouter au Panier</Button>
                                 </CardBody>
                             </Card>
                         </div>
@@ -49,7 +59,9 @@ class Main extends Component {
 
                 )}
 
-                </Row>
+                </Row>*/}<Provider store={store}>
+                <VoitureList/>
+            </Provider>
             </Container>
           {/*<Route exact={true} strict={true} path="/" component={Home}/>*/}
           <Route path="/cars" component={Cars}/>
