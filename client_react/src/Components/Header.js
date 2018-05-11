@@ -76,7 +76,7 @@ export default class Header extends React.Component {
       <div>
           <NotificationSystem ref="notificationSystem" />
         <Navbar  light expand="md">
-          <NavbarBrand>Egamos</NavbarBrand>
+          <NavbarBrand><img src='./Assets/logo.png' /></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

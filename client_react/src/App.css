@@ -50,11 +50,15 @@
 .google-login{
   margin-top: 7px;
   border-radius: 3px;
-  background: #357ae8;
+  background:white;
   border: none;
-  color: white;
+  color: darkgreen;
   padding-left: 7px;
   padding-right: 7px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor:pointer;
 }
 
 #cardV{
