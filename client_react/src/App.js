@@ -7,8 +7,8 @@ import {
   HashRouter
 } from "react-router-dom";
 import Header from "./Components/Header";
-import Home from "./Views/Home"
-import Cars from "./Views/ListCars"
+import Home from "./Views/Home";
+import Cars from "./Views/ListCars";
 import Footer from "./Components/Footer";
 import VoitureItem from"./Components/voitureItem";
 import VoitureList from "./Components/voitureList";
