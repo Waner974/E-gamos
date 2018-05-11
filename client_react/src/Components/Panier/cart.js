@@ -2,15 +2,17 @@
 import React from 'react';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux';
-import {deleteFromCart, updateItemUnits} from '../actions/cartActions';
+import {deleteFromCart, updateItemUnits} from '../../actions/cartActions';
 import {Col, Row, Panel, Badge} from 'react-bootstrap';
 import CartItem from "./cartItem";
+import './Cart.css';
 
 class Cart extends React.Component {
     renderCart() {
         return (
             <Panel className='cartList' header='Cart' bsStyle='primary'>
                 {this.cartList()}
+
             </Panel>
         );
     }
@@ -35,6 +37,7 @@ class Cart extends React.Component {
                             onAddUnit={this.handleAddUnit.bind(this, cartItem.id)}
                             onDeductUnit={this.handleDeductUnit.bind(this, cartItem.id)}
                             handleDeleteFromCart={this.handleDeleteFromCart.bind(this, cartItem.id)} />
+
               );
             })
         );
@@ -42,18 +45,12 @@ class Cart extends React.Component {
 
     cartTotal() {
         return (
-            <Panel>
-                <Row>
-                    <Col xs={12} sm={6}>
-                        <h4>TOTAL: <Badge pullRight>Prix:  {this.totalAmount(this.props.cart)} EUR</Badge></h4>
-                    </Col>
-                </Row>
-            </Panel>
+            <div className="cart__total">Total: {this.totalAmount(this.props.cart)} EUR</div>
         );
     }
     totalAmount(cartArray) {
         return cartArray.reduce((acum, item) => {
-            acum += item.price * item.units;
+            acum += item.prix * item.units;
             return acum;
         }, 0);
     }
@@ -61,10 +58,16 @@ class Cart extends React.Component {
     render() {
         if (this.props.cart.length !== 0) {
             return (
-                <aside className='cart'>
-                    {this.renderCart()}
-                    {this.cartTotal()}
-                </aside>
+                    <div className="cart">
+                        <div className="panel panel-default">
+                            <div className="panel-body">
+                                {this.renderCart()}
+                            </div>
+
+                        </div>
+                        {this.cartTotal()}
+                    </div>
+
             );
         }
 

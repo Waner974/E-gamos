@@ -10,8 +10,8 @@ import Header from "./Components/Header";
 import Home from "./Views/Home";
 import Cars from "./Views/ListCars";
 import Footer from "./Components/Footer";
-import VoitureItem from"./Components/voitureItem";
-import VoitureList from "./Components/voitureList";
+import VoitureItem from "./Components/Voitures/voitureItem";
+import VoitureList from "./Components/Voitures/voitureList";
 import { Container, Row, Col } from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
@@ -40,30 +40,10 @@ class Main extends Component {
         <div>
           <Header/>
             <Container>
-                {/*<Row>
-                {this.state.voitures.map(voiture =>
-
-                    <Col mb="4">
-                        <div>
-                            <Card key={voiture._id}>
-                                <CardImg top width="100%" height="400px" src={voiture.imagePath} alt={voiture.nom} />
-                                <CardBody>
-                                    <CardTitle >{voiture.nom}</CardTitle>
-                                    <CardSubtitle>Description</CardSubtitle>
-                                    <CardText>{voiture.description}</CardText>
-                                    <Button onClick={() => this.props.handleOnAdd(this.props.product)}>Ajouter au Panier</Button>
-                                </CardBody>
-                            </Card>
-                        </div>
-                    </Col>
-
-                )}
-
-                </Row>*/}<Provider store={store}>
+                <Provider store={store}>
                 <VoitureList/>
             </Provider>
             </Container>
-          {/*<Route exact={true} strict={true} path="/" component={Home}/>*/}
           <Route path="/cars" component={Cars}/>
           <Footer/>
         </div>

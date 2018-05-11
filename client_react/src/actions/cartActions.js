@@ -3,10 +3,10 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const DELETE_FROM_CART = 'DELETE_FROM_CART';
 export const UPDATE_ITEM_UNITS = 'UPDATE_ITEM_UNITS';
 
-export function addToCart({id, nom, description, price, units=1}) {
+export function addToCart({id, nom, description, prix,imagePath,units=1}) {
     return {
         type: ADD_TO_CART,
-        payload: {id, nom, description, price, units}
+        payload: {id, nom, description, prix, imagePath, units}
     }
 }
 export function deleteFromCart({id}) {

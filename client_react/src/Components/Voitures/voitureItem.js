@@ -1,6 +1,6 @@
 "use strict";
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
 import { Container, Row, Col } from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
@@ -22,24 +22,24 @@ class VoitureItem extends React.Component {
 
     render() {
         return (
-            <div>
+            <ul className="product-list">
                 {this.state.voitures.map(voiture =>
 
-                    <div>
-                        <Card id="cardV" key={voiture._id}>
-                            <CardImg height="400px" src={voiture.imagePath} alt="" />
+                    <li className="product-list__item">
+                        <Card id="cardV" key={voiture.id}>
+                            <CardImg src={voiture.imagePath} alt="" />
                             <CardBody>
                                 <CardTitle >{voiture.nom}</CardTitle>
                                 <CardSubtitle>Description</CardSubtitle>
                                 <CardText>{voiture.description}</CardText>
-                                <Button onClick={() => this.props.handleOnAdd(this.state.voitures)}  product={voiture} >Ajouter au Panier</Button>
+                                <Button onClick={() => this.props.handleOnAdd(voiture)}  product={voiture} >Ajouter au Panier</Button>
 
                             </CardBody>
                         </Card>
-                    </div>
+                    </li>
 
                 )}
-            </div>
+            </ul>
         );
     }
 }
