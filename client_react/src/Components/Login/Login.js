@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import { GoogleLogin } from 'react-google-login-component';
-import '../App.css';
+import '../../App.css';
 class Login extends React.Component{
  
   responseGoogle (googleUser) {
