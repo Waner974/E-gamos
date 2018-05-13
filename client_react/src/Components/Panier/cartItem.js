@@ -9,22 +9,22 @@ class CartItem extends React.Component {
             <Panel className='cartItem'>
                 <Row>
                     <Col xs={12} sm={6}>
-                        <h5><img src={this.props.cartItem.imagePath} height="42" width="42" />    {this.props.cartItem.nom} <Badge pullRight>Prix: {this.props.cartItem.prix} EUR </Badge></h5>
+                        <h5><img src={this.props.cartItem.imagePath} height="42" width="60" />    {this.props.cartItem.nom}</h5> <Badge pullRight>Prix: {this.props.cartItem.prix} EUR </Badge>
                     </Col>
                     <Col xs={6} sm={4}>
-                        <p>quantité :
-                            <Label bsStyle='success'> {this.props.cartItem.units} </Label>
-                            &nbsp;
-                            <Button bsSize='small' onClick={() => this.props.onAddUnit()}>+</Button>
+                        <p>
                             <Button bsSize='small' onClick={() => this.props.onDeductUnit()}>-</Button>
+                            <Label bsStyle='success'> {this.props.cartItem.units} </Label>
+                            <Button bsSize='small' onClick={() => this.props.onAddUnit()}>+</Button>
+
                         </p>
                     </Col>
                     <Col xs={6} sm={2}>
                         <Button onClick={() => this.props.handleDeleteFromCart()}
                                 bsSize='small' bsStyle='danger'>X</Button>
                     </Col>
-                    <hr/>
                 </Row>
+                <hr/>
             </Panel>
         );
     }

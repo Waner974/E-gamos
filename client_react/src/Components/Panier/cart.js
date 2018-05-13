@@ -59,6 +59,8 @@ class Cart extends React.Component {
         if (this.props.cart.length !== 0) {
             return (
                     <div className="cart">
+                        <h4>Panier</h4>
+                        <hr/>
                         <div className="panel panel-default">
                             <div className="panel-body">
                                 {this.renderCart()}
